@@ -23,7 +23,7 @@ class Application(tornado.web.Application):
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.render(
-            "index.html",
+            "main.html",
             page_title = "Burt's Books | Home",
             header_text = "Welcome to Burt's Books!"
         )
@@ -37,12 +37,13 @@ class RecommendedHandler(tornado.web.RequestHandler):
             books=[
                 {
                     "title":"Programming Collective Intelligence",
-                    "subtitle": "Building Smart Web 2.0 Applications", "image":"/static/images/collective_intelligence.gif",
+                    "subtitle": "Building Smart Web 2.0 Applications",
+                    "image":"/static/images/collective_intelligence.gif",
                     "author": "Toby Segaran",
-                    "date_added":1310248056,
+                    "date_added": 1310248056,
                     "date_released": "August 2007",
-                    "isbn":"978-0-596-52932-1",
-                    "description":"<p>This fascinating book demonstrates how you can build web applications to mine the enormous amount of data created by people .</p>"
+                    "isbn": "978-0-596-52932-1",
+                    "description": "<p>This fascinating book demonstrates how you can build web applications to mine the enormous amount of data created by people .</p>"
                 }
             ]
         )

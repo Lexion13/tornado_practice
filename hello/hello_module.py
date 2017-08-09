@@ -33,7 +33,7 @@ if __name__  == '__main__':
     app = tornado.web.Application(
         handlers=[(r'/', HelloHandler)],
         template_path=os.path.join(os.path.dirname(__file__), 'templates'),
-        ui_modules={"Hello", HelloModule}
+        ui_modules={"Hello": HelloModule}
     )
     server = tornado.httpserver.HTTPServer(app)
     server.listen(options.port)

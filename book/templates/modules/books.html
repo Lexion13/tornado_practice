@@ -1,14 +1,23 @@
-<div class="book">
-    <h3 class="book_title">{{ book["title"] }}</h3>
-    {% if book["subtitle"] != "" %}
-        <h4 class="book_subtitle">{{ book["subtitle"] }}</h4>
-    {% end %}
-    <img src="{{ book["image"] }}" class="book_image"/>
-    <div class="book_details">
-        <div class="book_date_released">Released: {{ book["date_released"]}}</div>
-        <div class="book_date_added">Added: {{ ≫
-locale.format_date(book["date_added"], relative=False) }}</div>
-        <h5>Description:</h5>
-        <div class="book_body">{% raw book["description"] %}</div>
-    </div>
-</div>
+{% extends "main.html" %}
+{% autoescape None %}
+
+{% block body %}
+<form method="POST">
+    ISBN <input type="text" name="isbn"
+        value="{{ book.get('isbn', '') }}"><br>
+    Title <input type="text" name="title"
+        value="{{ book.get('title', '') }}"><br>
+    Subtitle <input type="text" name="subtitle"
+        value="{{ book.get('subtitle', '') }}"><br>
+    Image <input type="text" name="image"
+        value="{{ book.get('image', '') }}"><br>
+    Author <input type="text" name="author"
+        value="{{ book.get('author', '') }}"><br>
+    Date released <input type="text" name="date_released"
+        value="{{ book.get('date_released', '') }}"><br>
+    Description<br>
+    <textarea name="description" rows="5"
+        cols="40">{% raw book.get('description', '')%}</textarea><br>
+    <input type="submit" value="Save">
+</form>
+{% end %}
